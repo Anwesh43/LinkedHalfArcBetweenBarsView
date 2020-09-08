@@ -185,4 +185,27 @@ class HalfArcBetweenBarsView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : HalfArcBetweenBarsView) {
+
+        private val animator : Animator = Animator(view)
+        private val habb : HalfArcBetweenBars = HalfArcBetweenBars(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            habb.draw(canvas, paint)
+            animator.animate {
+                habb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            habb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
