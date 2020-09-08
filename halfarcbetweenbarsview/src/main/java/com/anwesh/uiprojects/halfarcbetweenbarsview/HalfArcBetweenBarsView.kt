@@ -210,4 +210,13 @@ class HalfArcBetweenBarsView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : HalfArcBetweenBarsView {
+            val view : HalfArcBetweenBarsView = HalfArcBetweenBarsView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
