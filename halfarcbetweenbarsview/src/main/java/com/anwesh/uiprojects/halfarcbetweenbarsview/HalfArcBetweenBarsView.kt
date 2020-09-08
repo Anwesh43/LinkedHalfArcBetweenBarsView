@@ -45,7 +45,7 @@ fun Canvas.drawHalfArcBar(scale : Float, w : Float, h : Float, paint : Paint) {
         save()
         scale(1f - 2 * j, 1f)
         translate(0f, h / 2)
-        drawRect(RectF(w / 2 - barSize, 0f, w / 2, -r * sf1), paint)
+        drawRect(RectF(w / 2 - barSize, -r * sf1, w / 2, 0f), paint)
         restore()
     }
     drawArc(RectF(-r, h / 2 - r, r, h / 2 + r), start, sweep * sf2, true, paint)
